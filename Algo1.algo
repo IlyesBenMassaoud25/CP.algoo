@@ -1,0 +1,78 @@
+ALGORITHM First_Task
+VAR 
+Chaine : STRING ; 
+j,i: INTEGER;
+longueur_chaine : INTEGER := 0; 
+count:INTEGER := 0 ; 
+nombre_voyelle:INTEGER := 0;
+nombre_mot:INTEGER :=0;
+BEGIN
+write ("Donner une phrase");
+Read(chaine); 
+
+WHILE (chaine[count] <> "." ) DO
+   longueur_chaine :=longueur_chaine + 1;
+   count := count + 1; 
+END_WHILE
+
+FOR i FROM 0 TO longueur_chaine STEP step  DO
+    IF  (chaine[i] = " " ) THEN 
+        nombre_mot := nombre_mot + 1;
+    END_IF
+END_FOR
+
+FOR j FROM 0 TO longueur_chaine STEP step  DO
+            
+    SWITCH (chaine[i]) DO
+        case a : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        case e : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        case i : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        case o : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        case u : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        case y : nombre_voyelle:=nombre_voyelle + 1 ;break;
+        default : 
+    END_SWITCH
+END_FOR
+
+write('La longueur de chaine : ',longueur_chaine);
+write('le nombre de Mot : ',nombre_mot);
+write('le nombre de voyelle',nombre_voyelle);
+END
+
+ALGORITHM SECOND_TASK
+VAR
+set1 : ARRAY_OF INTEGER[5];
+set2 : ARRAY_OF INTEGER[5];
+set3 : ARRAY_OF INTEGER[5];
+set4 : ARRAY_OF INTEGER[5];
+set5,set,i,j,x,k,m,n : INTEGER;
+nombre:INTEGER;
+BEGIN
+set1:={3, 1, 7, 9} ;
+set2:={2, 4, 1, 9, 3};
+FOR i FROM 0 TO set1.length STEP 1  DO
+    nombre:=0 ;
+    FOR j FROM 0 TO set2.length STEP 1  DO
+        IF (set1[i] = set2[j])) THEN
+            nombre := 1;
+            break;
+        END_IF
+        IF (nombre = 0) THEN
+            set:= set+set1[i];
+        END_IF
+    END_FOR
+END_FOR
+
+FOR x FROM 0 TO set2.length STEP 1  DO
+    nombre2:=0 ;
+    FOR k FROM 0 TO set1.length STEP 1  DO
+        IF (set2[x] = set1[k])) THEN
+            nombre2 := 1;
+            break;
+        END_IF
+        IF (nombre2 = 0) THEN
+            set:= set+set1[x];
+        END_IF
+    END_FOR
+END_FOR
+END
